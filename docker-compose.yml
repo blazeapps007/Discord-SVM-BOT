@@ -1,0 +1,16 @@
+services:
+  bot:
+    build: .
+    container_name: discord-svm-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      FAUCET_DB_PATH: /app/data/faucet.db
+    ports:
+      - "${WEB_FAUCET_PORT:-3000}:${WEB_FAUCET_PORT:-3000}"
+    volumes:
+      - bot-data:/app/data
+
+volumes:
+  bot-data:

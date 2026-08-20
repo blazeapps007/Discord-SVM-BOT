@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npm install discord.js dotenv)",
+      "PowerShell(node --check index.js)",
+      "PowerShell(npm start)",
+      "PowerShell(npm install ethers @cosmjs/encoding)",
+      "PowerShell(node --check wallet.js)",
+      "PowerShell(npm install @cosmjs/stargate @cosmjs/proto-signing @cosmjs/tendermint-rpc cosmjs-types)",
+      "PowerShell(node check-wallet.js)",
+      "PowerShell(node -e \"const db = require\\('./db'\\); db.recordClaim\\({discordId:'test-user',discordTag:'test#0',address:'0xtest',addressInput:'0xTest',amount:'1',txHash:'0xhash'}\\); console.log\\('by user:', JSON.stringify\\(db.getClaimByUser\\('test-user'\\)\\)\\); console.log\\('by addr:', JSON.stringify\\(db.getClaimByAddress\\('0xtest'\\)\\)\\); console.log\\('stats:', JSON.stringify\\(db.getStats\\(\\)\\)\\);\")",
+      "Bash(curl -s -X POST https://testnet.blazeapps.org -H \"Content-Type: application/json\" -d '{\"jsonrpc\":\"2.0\",\"method\":\"condenser_api.get_config\",\"params\":[],\"id\":1}')",
+      "Bash(curl -s -X POST https://testnet.blazeapps.org -H \"Content-Type: application/json\" -d '{\"jsonrpc\":\"2.0\",\"method\":\"condenser_api.get_dynamic_global_properties\",\"params\":[],\"id\":1}')",
+      "Bash(curl -s -X POST https://testnet.blazeapps.org -H \"Content-Type: application/json\" -d '{\"jsonrpc\":\"2.0\",\"method\":\"condenser_api.get_chain_properties\",\"params\":[],\"id\":1}')",
+      "Bash(curl -s -X POST https://testnet.blazeapps.org -H \"Content-Type: application/json\" -d '{\"jsonrpc\":\"2.0\",\"method\":\"condenser_api.get_accounts\",\"params\":[[\"initminer\"]],\"id\":1}')",
+      "PowerShell(npm install dsteem)",
+      "PowerShell(node --check steem.js)",
+      "PowerShell(node check-steem.js)",
+      "PowerShell(node --check db.js)",
+      "PowerShell(node check-create.js)",
+      "PowerShell(Get-CimInstance Win32_Process -Filter \"Name='node.exe'\")",
+      "Bash(curl -s https://discord.com/api/v10/guilds/1427279219490029602/roles -H 'Authorization: Bot MTUyNzMwMjUwMDA0NTI5NTY4Ng.G12Yra.walQd0RPMBgTsBvpcIHwtp8CiQiSfMEmab0R1U')",
+      "PowerShell(docker --version)",
+      "PowerShell(docker compose version)",
+      "PowerShell(docker compose build)",
+      "PowerShell(docker compose up -d)",
+      "PowerShell(docker compose logs)",
+      "PowerShell(docker compose down)"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "discord-svm-bot",
+  "version": "1.0.0",
+  "description": "A basic Discord bot that says Hi, with a prefix-command system for future features",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "discord.js"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@cosmjs/encoding": "^0.39.0",
+    "discord.js": "^14.27.0",
+    "dotenv": "^17.4.2",
+    "dsteem": "^0.11.3",
+    "ethers": "^6.17.0"
+  }
+}

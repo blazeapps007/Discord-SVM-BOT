@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log
+.env
+.env.local
+faucet.db
+.git
+.gitignore
+.qodo
+.claude
+*.md
