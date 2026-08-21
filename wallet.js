@@ -18,7 +18,11 @@ function getProvider() {
   if (!provider) {
     provider = new ethers.JsonRpcProvider(
       process.env.RPC_URL,
-      process.env.CHAIN_ID ? Number(process.env.CHAIN_ID) : undefined
+      process.env.CHAIN_ID ? Number(process.env.CHAIN_ID) : undefined,
+      // This chain's RPC doesn't handle batched JSON-RPC requests correctly —
+      // ethers v6 batches by default, which surfaces as the opaque
+      // "could not coalesce error". Send each call individually instead.
+      { batchMaxCount: 1 }
     );
   }
   return provider;
