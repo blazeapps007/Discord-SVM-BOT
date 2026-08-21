@@ -4,6 +4,10 @@ const { fromBech32, toBech32 } = require('@cosmjs/encoding');
 const BECH32_PREFIX = process.env.BECH32_PREFIX || 'steem';
 const COIN_SYMBOL = process.env.COIN_SYMBOL || 'STEEM';
 
+const GAS_LIMIT = 21000n; // standard cost of a plain value transfer, no calldata
+const GAS_FEE_AMOUNT = process.env.GAS_FEE_AMOUNT || '0.0001'; // total tx fee (gasLimit * gasPrice), in COIN_SYMBOL
+const GAS_PRICE = ethers.parseEther(GAS_FEE_AMOUNT) / GAS_LIMIT;
+
 let provider = null;
 let wallet = null;
 
@@ -67,6 +71,8 @@ async function sendCoins(to, amount) {
   const tx = await w.sendTransaction({
     to: toHexAddress(to),
     value: ethers.parseEther(amount),
+    gasLimit: GAS_LIMIT,
+    gasPrice: GAS_PRICE,
   });
   const receipt = await tx.wait();
   return { hash: tx.hash, blockNumber: receipt.blockNumber };
